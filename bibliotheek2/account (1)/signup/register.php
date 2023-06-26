@@ -36,7 +36,7 @@ if ($_POST['password'] !== $_POST['password_confirm']) {
     exit('Passwords do not match!');
 }
 // We need to check if the account with that username exists.
-if ($stmt = $conn->prepare('SELECT id, password FROM accounts WHERE username = ?')) {
+if ($stmt = $conn->prepare('SELECT user_id, password FROM accounts WHERE username = ?')) {
     // Bind parameters (s = string, i = int, b = blob, etc), hash the password using the PHP password_hash function.
     $stmt->bind_param('s', $_POST['username']);
     $stmt->execute();

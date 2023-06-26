@@ -45,7 +45,7 @@
             <input type="text" name="phone_number" placeholder="Phone Number" id="phone_number" required>
             <br><br>
             <button class="signup"><a href="../login/login.php">login</a></button>
-            <button class="terug"><a href="../../crud-php/index.html">terug</a></button>
+            <button class="terug"><a href="../../crud-php/index.php">terug</a></button>
             <input type="submit" value="Register">
         </form>
     </div>

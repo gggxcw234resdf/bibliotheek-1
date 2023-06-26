@@ -28,7 +28,7 @@
       <li><a href="#" onclick="openPopup('../account (1)/login/login.php')">Login</a></li>
       <li><a href="#" onclick="openPopup('../employees-crud/home.php')">Employees CRUD</a></li>
       <li><a href="#" onclick="openPopup('./view/schrijvercrudview.php')">Schrijver CRUD</a></li>
-      <li><a href="index.html">Home</a></li>
+      <li><a href="index.php">Home</a></li>
       <!-- Add more navigation links as needed -->
     </ul>
   </nav>

@@ -15,7 +15,7 @@
         <br><br><br><br>
         <input type="password" name="password" placeholder="Password" id="password" required>
         <button class="signup"><a href="../signup/register.index.php">sign up</a></button>
-        <button class="terug"><a href="../../crud-php/index.html">terug</a></button>
+        <button class="terug"><a href="../../crud-php/index.php">terug</a></button>
         <input type="submit" value="Login">
       </form>
     </div>
