@@ -5,7 +5,7 @@ include "../db_conn.php";
 
 if (isset($_POST['uitlenen'])) {
     $boek_id = $_POST['boek_id'];
-    $gebruiker_id = $_SESSION['id'];
+    $gebruiker_id = $_SESSION['user_id'];
 
     // Check if the book is available for borrowing
     $sql = "SELECT uitgeleend FROM boeken WHERE boek_id = ?";
@@ -25,7 +25,7 @@ if (isset($_POST['uitlenen'])) {
         // Insert a new entry in the borrowed_books table
         $sql = "INSERT INTO borrowed_books (user_id, book_id) VALUES (?, ?)";
         $stmt = mysqli_prepare($conn, $sql);
-        mysqli_stmt_bind_param($stmt, "ii", $id, $boek_id);
+        mysqli_stmt_bind_param($stmt, "ii", $gebruiker_id, $boek_id); // Updated variable name here
         mysqli_stmt_execute($stmt);
 
         echo "Book borrowed successfully.";
