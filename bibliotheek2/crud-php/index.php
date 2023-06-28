@@ -50,6 +50,7 @@ if (empty($_SESSION['role'])) {
     echo '<img src="data:image/jpeg;base64,' . $coverImage . '" alt="' . $title . '">';
     echo '<h4>' . $title . '</h4>';
     echo '<p>' . $author . '</p>';
+    echo '<a class="btn" href="book_details.php?id='. "boek_id" .'">View Book</a>'; // Button to view book details
     echo '</div>';
   }
 
