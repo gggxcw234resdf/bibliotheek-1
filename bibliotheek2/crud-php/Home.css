@@ -167,3 +167,7 @@ body{
   text-align: center;
 
 }
+
+.box image {
+  size: 250;
+}
