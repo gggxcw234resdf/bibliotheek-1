@@ -21,38 +21,43 @@
 
         <div class="knoppen_front">
             <a class="btn verzameling" href="view/read.php">bekijk onze verzameling</a>
-           <?if (empty($_SESSION['role'])) {
-    echo ' <a class="btn word_lid" href="../account (1)/signup/register.index.php">Word lid</a>';
-} 
-        ?>
+            <?php
+if (empty($_SESSION['role'])) {
+    echo '<a class="btn word_lid" href="../account (1)/signup/register.index.php">Word lid</a>';
+}
+?>
         </div>
     </div>
 
     <div class="informatie">
-        <h3>Informatie</h3>
+        <h3>nieuw</h3>
       
-      <!-- de doos in het informatie gedeelte-->
         <div class="box">
-      <!-- een van de 3 kollommen in de doos -->
-          <div class="column">
-            <img class="info-img" src="uploads/FirdaGeel_Groen-07_0_0.png" alt="firda">
-            <h1>informatie over de bibliotheek.</h1>
-            <p>deze bibliotheek is volledig gesponserd door school en nog meer maar
-            ik type hier alleen maar wat dus het is niet waar of wel ik weet het niet zeker.</p>
-          </div>
-      <!-- een van de 3 kollommen in de doos -->
-          <div class="column">
-            <img class="info-img" src="uploads/FirdaGeel_Groen-07_0_0.png" alt="firda">
-            <h1>informatie over de bibliotheek.</h1>
-            <p>deze bibliotheek is volledig gesponserd door school en nog meer maar
-            ik type hier alleen maar wat dus het is niet waar of wel ik weet het niet zeker.</p>
-          </div>
-      <!-- een van de 3 kollommen in de doos -->
-          <div class="column">
-            <img class="info-img" src="uploads/FirdaGeel_Groen-07_0_0.png" alt="firda">
-            <h1>informatie over de bibliotheek.</h1>
-            <p>deze bibliotheek is volledig gesponserd door school en nog meer maar
-            ik type hier alleen maar wat dus het is niet waar of wel ik weet het niet zeker.</p>
+        <div class="box">
+  <?php
+  // hier haalt ie de 3 boeken die bovenaan staan als je sorteert op datum op
+  $query = "SELECT * FROM boeken ORDER BY datum DESC LIMIT 3";
+  $result = mysqli_query($conn, $query);
+
+  // Loop door de resultaten en laat de nieuwste zien
+  while ($row = mysqli_fetch_assoc($result)) {
+    $title = $row['titel'];
+    $author = $row['schrijver'];
+    $coverImage = base64_encode($row['image']); // Convert BLOB to base64
+
+    // hier word de informatie van het boek weer gegeven 
+    echo '<div class="release">';
+    echo '<img src="data:image/jpeg;base64,' . $coverImage . '" alt="' . $title . '">';
+    echo '<h4>' . $title . '</h4>';
+    echo '<p>' . $author . '</p>';
+    echo '</div>';
+  }
+
+  // free the result check
+  mysqli_free_result($result);
+  ?>
+</div>
+
           </div>
       
         </div>
